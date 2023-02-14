@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <link href="./styles/style.css" rel="stylesheet" />
+    <!-- vue cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- box icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="font-light">
+    <div id="root">
+      <header class="bg-white">
+        <div class="container mx-auto flex h-[30px] justify-end items-center">
+          <div class="flex justify-between items-center w-1/4">
+            <div class="flex items-center justify-between w-2/5 px-1">
+              <i class="bx bxs-envelope block"></i>
+              <p>Aloqa uchun</p>
+            </div>
+            <div
+              class="flex items-center  justify-between w-1/4 px-4"
+            >
+              <p>UZ</p>
+              <img src="./images/chevron.png" alt="bottom" class="w-3 h-3" />
+            </div>
+          </div>
+        </div>
+        <div class="container mx-auto px-[62px]">
+          <nav class="nav flex justify-between items-center h-[70px]">
+            <img
+              src="./images/Logo.svg"
+              alt="logo"
+              class="hover:opacity-80 cursor-pointer active:opacity-100"
+            />
+            <ul class="flex justify-between items-center w-4/5">
+              <li
+                class="katalog duration-300 flex justify-evenly items-center h-[46px] w-[149px] rounded-lg text-white cursor-pointer"
+              >
+                <i class="bx bx-menu"></i>
+                <h1>KATALOG</h1>
+              </li>
+              <li
+                class="flex justify-between items-center rounded-lg border-[#E4E7EE] border-[1px] cursor-pointer"
+              >
+                <input
+                  type="text"
+                  placeholder="Mahsulotlarni izlash"
+                  class="px-4 py-2 placeholder:text-[16px] rounded-l-lg leading-4 focus:outline-none placeholder:text-[ #6C757D] focus:ring-2 focus:ring-sky-500"
+                />
+                <i
+                  class="bx bx-search-alt-2 p-2 text-[29px] bg-[#0D63F3] rounded-r-lg text-white cursor-pointer"
+                ></i>
+              </li>
+              <li>
+                <i
+                  class="bx bx-heart p-3 rounded-lg bg-[#ECF4FF] text-[#0D63F3] hover:bg-[#ccdcf3] duration-300 active:text-red-200 active:bg-[#94bcf5] cursor-pointer"
+                ></i>
+              </li>
+              <li>
+                <i
+                  class="bx bx-cart p-3 rounded-lg bg-[#ECF4FF] text-[#0D63F3] hover:bg-[#ccdcf3] duration-300 active:text-red-200 active:bg-[#94bcf5] cursor-pointer"
+                ></i>
+              </li>
+              <li>
+                <button
+                  class="enter py-2 px-[31px] cursor-pointer rounded-[10px] hover:bg-pink-500 duration-300 hover:text-white active:bg-pink-700"
+                >
+                  Kirish
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="bg-[#ECF4FF] mt-[3px]">
+        <section class="cashback">
+          <div class="container mx-auto">
+            <div class="wrapper flex justify-between items-center">
+              <i
+                class="bx bx-chevron-left cursor-pointer left px-3 py-2 rounded-full text-2xl"
+              ></i>
+              <div
+                class="h-[460px] w-[1530px] flex items-center justify-center"
+              >
+                <img
+                  src="./images/image 9.svg"
+                  alt="add"
+                  class="rounded-2xl h-[420px] mt-8 w-[1360px]"
+                />
+              </div>
+              <i
+                class="bx bx-chevron-right cursor-pointer right px-3 py-2 rounded-full text-2xl text-white cursor-pointer"
+              ></i>
+            </div>
+            <div
+              class="flex justify-center items-center mx-auto w-1/4 pt-5 pb-10"
+            >
+              <ul
+                class="flex justify-between items-center w-2/3 cursor-pointer"
+              >
+                <li class="p-2 rounded-full sym active"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-800"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-800"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-800"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-800"></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- category -->
+        <section class="category">
+          <div
+            class="container mx-auto px-[62px] flex gap-5 flex-col min-h-[324px]"
+          >
+            <h1 class="text-[28px] text-[#1E1E1E]">Kategoriyalar</h1>
+            <div class="cards-wrapper flex gap-[47px] items-center flex-wrap">
+              <div
+                class="card rounded-[10px] bg-white flex flex-col shadow-xl cursor-pointer hover:shadow-2xl active:shadow-xl justify-center items-center w-[135px] h-[200px]"
+                v-for="card in categories"
+              >
+                <img :src="card.link" alt="iphone" />
+                <h1 class="text-[16px] text-center font-light">
+                  {{card.title}}
+                </h1>
+              </div>
+            </div>
+            <button
+              class="btn rounded-[10px] duration-500 hover:bg-sky-500 active:bg-sky-700 hover:text-white bg-white w-full py-[12px]"
+            >
+              Batafsil
+            </button>
+          </div>
+        </section>
+        <!-- eng ko'p sotilgan -->
+        <section class="sold-out">
+          <div
+            class="container mx-auto px-[62px] pt-[40px] min-h-[982px] flex flex-col gap-5 min-h-[942px]"
+          >
+            <h1 class="text-[28px] text-[#1E1E1E]">Eng ko'p sotilgan</h1>
+            <!-- cards -->
+            <div class="wrapper-cards flex gap-[65px] items-center flex-wrap">
+              <div
+                v-for="card in soldOuts"
+                class="card p-5 bg-white flex flex-col justify-between h-[390px] w-[230px] rounded-[10px] relative shadow-xl cursor-pointer hover:shadow-2xl active:shadow-xl"
+              >
+                <i
+                  class="bx bx-heart absolute top-2 right-2 z-10 opacity-30 text-xl hover:text-red-800 hover:text-2xl hover:font-bold hover:opacity-100"
+                ></i>
+                <h1
+                  v-if="card.yangilik"
+                  class="py-[5px] px-[10px] bg-[#EB8528] rounded-[4px] absolute text-white left-2 top-2"
+                >
+                  Yangilik
+                </h1>
+                <h1
+                  v-if="card.topsale"
+                  class="py-[5px] px-[10px] bg-[#FF0101] rounded-[4px] absolute text-white left-2 top-2"
+                >
+                  Top sale
+                </h1>
+                <img :src="card.link" alt="not" />
+                <h1 class="text-[#0D63F3]">{{card.price}}</h1>
+                <h1 class="text-[14px] font-light">{{card.title}}</h1>
+                <h1 class="py-[10px] text-[#6C757D] text-[14px]">
+                  {{card.orders}}
+                </h1>
+                <div class="flex justify-between items-center">
+                  <button
+                    class="py-[10px] px-6 rounded-lg hover:bg-[#07378a] duration-300 text-white text-[16px] bg-[#0D63F3]"
+                  >
+                    Sotib olish
+                  </button>
+                  <i
+                    class="bx bx-cart text-[26px] text-[#6C757D] hover:text-red-600 hover:opacity-100"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <button
+              class="rounded-[10px] bg-white w-full py-[12px] duration-500 hover:bg-sky-500 active:bg-sky-700 hover:text-white"
+            >
+              Ko'proq ko'rish
+            </button>
+          </div>
+        </section>
+        <!-- mechta -->
+        <section class="dream-house">
+          <div class="container mx-auto">
+            <div class="wrapper flex justify-between items-center pt-8">
+              <i
+                class="bx bx-chevron-left left px-3 py-2 rounded-full cursor-pointer text-2xl"
+              ></i>
+              <div class="w-[1530px] flex items-center justify-center">
+                <img
+                  src="./images/image 1.svg"
+                  alt="add"
+                  class="rounded-2xl w-[1360px]"
+                />
+              </div>
+              <i
+                class="bx bx-chevron-right right cursor-pointer px-3 py-2 rounded-full text-2xl text-white"
+              ></i>
+            </div>
+            <div class="flex justify-center items-center mx-auto w-1/4 py-4">
+              <ul class="flex justify-between items-center w-2/3">
+                <li class="p-2 rounded-full sym active"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-700"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-700"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-700"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-700"></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="ommabop">
+          <div
+            class="container mx-auto px-[62px] pt-[40px] min-h-[982px] flex flex-col gap-5 min-h-[942px]"
+          >
+            <h1 class="text-[28px] text-[#1E1E1E]">Eng ommabop</h1>
+            <!-- render card start -->
+            <div class="wrapper-cards flex gap-[65px] items-center flex-wrap">
+              <div
+                v-for="card in soldOuts"
+                class="card p-5 bg-white flex flex-col shadow-xl cursor-pointer hover:shadow-2xl active:shadow-xl justify-between h-[390px] w-[230px] rounded-[10px] relative"
+              >
+                <i
+                  class="bx bx-heart absolute top-2 right-2 z-10 opacity-30 text-xl hover:text-red-800 hover:text-2xl hover:font-bold hover:opacity-100"
+                ></i>
+                <img :src="card.link" alt="not" />
+                <h1 class="text-[#0D63F3]">{{card.price}}</h1>
+                <h1 class="text-[14px] font-light">{{card.title}}</h1>
+                <h1 class="py-[10px] text-[#6C757D] text-[14px]">
+                  {{card.orders}}
+                </h1>
+                <div class="flex justify-between items-center">
+                  <button
+                    class="py-[10px] px-6 rounded-lg hover:bg-[#07378a] duration-300 text-white text-[16px] bg-[#0D63F3]"
+                  >
+                    Sotib olish
+                  </button>
+                  <i
+                    class="bx bx-cart text-[26px] text-[#6C757D] hover:text-red-600 hover:opacity-100"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <!-- render end -->
+            <button class="rounded-[10px] bg-white w-full py-[12px]">
+              Ko'proq ko'rish
+            </button>
+          </div>
+        </section>
+        <section class="brends">
+          <div class="container mx-auto px-[62px] py-[60px]">
+            <h1 class="text-[28px]">Brendlar bo'yicha</h1>
+            <!-- render brands -->
+            <div
+              class="wrapper-brends pt-[20px] gap-[54px] flex flex-wrap items-center"
+            >
+              <img
+                v-for="brand in brands"
+                :src="brand.link"
+                alt="brend"
+                class="py-[5px] px-[50px] bg-[#FCFFFC] rounded-lg shadow-xl cursor-pointer hover:shadow-2xl active:shadow-xl"
+              />
+            </div>
+            <!-- render end -->
+          </div>
+        </section>
+        <!-- mechta -->
+        <section class="dream-house">
+          <div class="container mx-auto">
+            <div class="wrapper flex justify-between items-center pt-8">
+              <i
+                class="bx bx-chevron-left left px-3 py-2 rounded-full text-2xl cursor-pointer"
+              ></i>
+              <div class="w-[1530px] flex items-center justify-center">
+                <img
+                  src="./images/image 1.svg"
+                  alt="add"
+                  class="rounded-2xl w-[1360px]"
+                />
+              </div>
+              <i
+                class="bx bx-chevron-right right px-3 py-2 rounded-full text-2xl text-white cursor-pointer"
+              ></i>
+            </div>
+            <div
+              class="flex justify-center items-center mx-auto w-1/4 pt-5 pb-10"
+            >
+              <ul class="flex justify-between items-center w-2/3">
+                <li class="p-2 rounded-full sym active"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-700"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-700"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-700"></li>
+                <li class="p-2 rounded-full sym hover:bg-sky-700"></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- markets -->
+        <section class="markets">
+          <div class="container mx-auto px-[62px] pt-[60px] pb-[80px]">
+            <h1 class="text-[28px]">Do'konlarimiz</h1>
+            <!-- render markets -->
+            <div
+              class="wrapper-markets pt-[20px] gap-[54px] flex flex-wrap items-center"
+            >
+              <img
+                v-for="market in markets"
+                :src="market.link"
+                alt="brend"
+                class="py-[5px] px-[50px] bg-[#FCFFFC] rounded-lg shadow-xl cursor-pointer hover:shadow-2xl active:shadow-xl"
+              />
+            </div>
+            <!-- render end -->
+          </div>
+        </section>
+        <footer class="pt-[60px] pb-[38px]">
+          <div class="container mx-auto px-[62px] flex flex-col gap-4">
+            <div class="links flex justify-between">
+              <div class="documents flex flex-col gap-2">
+                <h1 class="font-bold">Hujjatlar</h1>
+                <ul class="flex flex-col gap-2">
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Umumiy shartlar</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Ofertalar arxivi</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Nizom</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Guvohnoma</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="services flex flex-col gap-2">
+                <h1 class="font-bold">Servis</h1>
+                <ul class="flex flex-col gap-2">
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Do'konlar</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Biz haqimizda</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Hamkorlik uchun</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Qaytarish</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Promokodlar</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="services flex flex-col gap-2">
+                <h1 class="font-bold">Mahsulotlar katalogi</h1>
+                <ul class="flex flex-col gap-2">
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Katalog 1</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Katalog 2</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Katalog 3</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Katalog 4</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Katalog 5</a
+                    >
+                  </li>
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >Katalog 6</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="services flex flex-col gap-2">
+                <h1 class="font-bold">Axborot xizmati</h1>
+                <ul class="flex flex-col gap-2">
+                  <li>
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >contact.@nextstore.uz</a
+                    >
+                  </li>
+                  <li class="flex flex-col">
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >+998 94 917 41 27</a
+                    >
+                    <a class="hover:text-blue-400 active:text-blue-500" href="#"
+                      >+998 33 917 41 27</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:text-blue-400 active:text-blue-500"
+                      >Sag'bon 186, Olmazor tumani, Toshkent, O'zbekiston</a
+                    >
+                  </li>
+
+                  <li class="flex justify-between w-2/3">
+                    <img src="./images/Facebook - Original.svg" alt="fc" />
+                    <img src="./images/Instagram - Original.svg" alt="fc" />
+                    <img src="./images/Telegram - Original.svg" alt="fc" />
+                    <img src="./images/TikTok - Original.svg" alt="fc" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <hr class="h-[2px] border-none" />
+            <div class="flex justify-between items-center">
+              <h1
+                class="hover:text-blue-400 active:text-blue-500 cursor-pointer"
+              >
+                2022 Nextstore.com
+              </h1>
+              <h1>Powered by</h1>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </body>
+  <script src="./script/app.js"></script>
+</html>
